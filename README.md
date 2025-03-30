@@ -1,12 +1,16 @@
-# React + Vite
+This is a Kotlin Multiplatform project targeting Android, Server.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+* `/composeApp` is for code that will be shared across your Compose Multiplatform applications.
+  It contains several subfolders:
+  - `commonMain` is for code that’s common for all targets.
+  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
+    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
+    `iosMain` would be the right folder for such calls.
 
-Currently, two official plugins are available:
+* `/server` is for the Ktor server application.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* `/shared` is for the code that will be shared between all targets in the project.
+  The most important subfolder is `commonMain`. If preferred, you can add code to the platform-specific folders here too.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
