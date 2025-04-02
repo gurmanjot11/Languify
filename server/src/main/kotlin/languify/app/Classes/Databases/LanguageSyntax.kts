@@ -1,3 +1,7 @@
+import server.bin.main.languify.app.classes.enums.Language
+import server.bin.main.languify.app.classes.enums.Script
+import Text
+
 data class LanguageSyntax(
     val id: Int,
     val name: Language,
