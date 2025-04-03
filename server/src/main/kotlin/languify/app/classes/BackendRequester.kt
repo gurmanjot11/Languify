@@ -1,9 +1,7 @@
-import languify.ExpertManager
+import languify.app.classes.experts.ExpertManager
 import languify.Language
-import languify.LanguageFacts
-import languify.Text
-import languify.TextObtainer
-import languify.LanguageFactsLayout
+import languify.app.classes.Text
+import languify.app.classes.databases.LanguageFactsLayout
 
 class BackendRequester {
     //obtain from front end

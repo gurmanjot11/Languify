@@ -1,4 +1,7 @@
-package languify
+package languify.app.classes.experts
+
+import languify.Language
+import languify.app.classes.Text
 
 class UniqueExpert : Expert {
 
