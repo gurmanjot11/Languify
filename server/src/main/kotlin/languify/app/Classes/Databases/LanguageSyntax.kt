@@ -1,6 +1,5 @@
 package languify
 
-import Text
 
 data class LanguageSyntax(
     val id: Int,
@@ -65,7 +64,7 @@ object LanguageSyntaxDatabase
         return item?.unicodeRange ?: byteArrayOf(0,0)
     }
 
-    fun compareTextToLanguage(text : Text, language : Language): Boolean{
+    fun compareTextToLanguage(text: Text, language : Language): Boolean{
         val codeRange = getLanguageUnicode(language)
         return text.checkIfInUnicodeRange(codeRange)
     }
