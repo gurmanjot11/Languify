@@ -72,6 +72,8 @@ object LanguageSyntaxDatabase
         return text.checkIfInUnicodeRange(codeRange)
     }
 
+
+
     //companion object Factory
     //{
     //fu
