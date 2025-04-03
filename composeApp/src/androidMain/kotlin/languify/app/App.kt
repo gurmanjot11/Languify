@@ -20,14 +20,6 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 import languifyapp.composeapp.generated.resources.Res
 import languifyapp.composeapp.generated.resources.compose_multiplatform
 
-@Composable
-fun TestPushFromMark(message: String, modifier: Modifier = Modifier){
-    Text(
-        text = message,
-        fontSize =50.sp,
-        lineHeight = 56.sp
-    )
-}
 
 
 
@@ -47,7 +39,6 @@ fun App() {
                     Text("Compose: $greeting")
                 }
             }
-            TestPushFromMark("Mark is testing to push to main branch")
 
         }
     }
