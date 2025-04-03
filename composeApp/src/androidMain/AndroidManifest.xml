@@ -11,6 +11,10 @@
         <activity
             android:name=".HomePage"
             android:exported="false" />
+
+        <activity
+            android:name=".InputPage"
+            android:exported="false" />
         <activity
 
             android:exported="true"
