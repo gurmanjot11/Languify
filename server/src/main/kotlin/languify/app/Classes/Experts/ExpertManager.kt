@@ -9,7 +9,6 @@ class ExpertManager
     private val uniqueExpert: Expert = UniqueExpert()
     private val latinExpert: Expert = LatinExpert()
     private val arabicExpert: Expert = ArabicExpert()
-
     fun determineLanguage(text: Text) : Language {
         var finalResult : Language = Language.NONE
         askExperts(text)

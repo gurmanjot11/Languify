@@ -1,3 +1,5 @@
+package languify
+
 class Text{
     private val textString: String
     private var utf: ByteArray
