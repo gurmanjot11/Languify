@@ -1,7 +1,6 @@
-package languify.app.classes.databases
+package languify
 
-import languify.Language
-import languify.Script
+import Text
 
 data class LanguageSyntax(
     val id: Int,
@@ -61,16 +60,18 @@ object LanguageSyntaxDatabase
     }
 
 
-    fun getLanguageUnicode(language : Language): ByteArray {
+    private fun getLanguageUnicode(language : Language): ByteArray {
         val item : LanguageSyntax? = findLanguageSyntax(language)
         return item?.unicodeRange ?: byteArrayOf(0,0)
     }
 
-    //companion object {
-    //    fun compareTextToLanguage(text : Text, language : Language): Boolean{
-    //        val codeRange = getLanguageUnicode(language)
-    //        return text.checkIfInUnicodeRange(codeRange)
-     //   }
+    fun compareTextToLanguage(text : Text, language : Language): Boolean{
+        val codeRange = getLanguageUnicode(language)
+        return text.checkIfInUnicodeRange(codeRange)
+    }
 
+    //companion object Factory
+    //{
+    //fu
     //}
 }
