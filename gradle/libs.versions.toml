@@ -21,6 +21,7 @@ h2-version = "2.3.232"
 kotlin-version = "2.1.20"
 ktor-version = "3.1.1"
 logback-version = "1.4.14"
+cardview = "1.0.0"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -51,6 +52,7 @@ ktor-server-openapi = { module = "io.ktor:ktor-server-openapi", version.ref = "k
 logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback-version" }
 ktor-server-config-yaml = { module = "io.ktor:ktor-server-config-yaml", version.ref = "ktor-version" }
 ktor-server-test-host = { module = "io.ktor:ktor-server-test-host", version.ref = "ktor-version" }
+androidx-cardview = { group = "androidx.cardview", name = "cardview", version.ref = "cardview" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
