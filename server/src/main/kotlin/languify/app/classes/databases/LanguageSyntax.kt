@@ -1,6 +1,8 @@
-package languify
+package languify.app.classes.databases
 
-import Text
+import languify.Language
+import languify.Script
+import languify.app.classes.Text
 
 data class LanguageSyntax(
     val id: Int,

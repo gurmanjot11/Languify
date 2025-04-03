@@ -1,4 +1,4 @@
-package languify
+package languify.app.classes
 
 class Text{
     private val textString: String

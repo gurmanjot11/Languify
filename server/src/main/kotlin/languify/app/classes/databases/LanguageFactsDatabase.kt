@@ -1,7 +1,4 @@
-package languify.app.Classes.Databases
-
-import languify.Language
-import languify.LanguageFacts
+package languify.app.classes.databases
 
 // TODO ADD MORE DATABASE ITEMS!!!!
 
@@ -28,7 +25,7 @@ val languageFactsDatabaseItems: List<LanguageFacts> = listOf (
 
 fun retrieveLanguageFact(language: String): LanguageFacts {
 
-    for (item:LanguageFacts in languageFactsDatabaseItems ) {
+    for (item: LanguageFacts in languageFactsDatabaseItems ) {
         if (language.equals(item.language)) {
             return item
         }

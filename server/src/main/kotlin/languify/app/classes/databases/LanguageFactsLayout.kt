@@ -1,7 +1,6 @@
-package languify
+package languify.app.classes.databases
 
-import languify.app.Classes.Databases.languageFactsDatabaseItems
-import languify.app.Classes.Databases.retrieveLanguageFact
+import languify.Language
 
 data class LanguageFacts(
     val id: Int,
