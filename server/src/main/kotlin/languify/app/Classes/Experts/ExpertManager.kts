@@ -1,3 +1,5 @@
+package languify
+
 class ExpertManager
 {
     private var uniqueResult: Language = Language.NONE

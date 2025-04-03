@@ -1,4 +1,4 @@
-package Classes
+package languify
 
 class UniqueExpert : Expert {
 
