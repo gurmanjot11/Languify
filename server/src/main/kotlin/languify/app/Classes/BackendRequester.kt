@@ -1,7 +1,9 @@
 import languify.ExpertManager
 import languify.Language
+import languify.LanguageFacts
 import languify.Text
 import languify.TextObtainer
+import languify.LanguageFactsLayout
 
 class BackendRequester {
     //obtain from front end
@@ -17,7 +19,9 @@ class BackendRequester {
         val expertManager: ExpertManager = ExpertManager()
         val language: Language = expertManager.determineLanguage(text)
 
-        //Databases.LanguageFactsLayout.obtainFacts(language)
+        val languageFactsLayout = LanguageFactsLayout()
+        val facts: LanguageFacts = languageFactsLayout.retrieveFacts(language)
+
         //send to front end
 
         //return
