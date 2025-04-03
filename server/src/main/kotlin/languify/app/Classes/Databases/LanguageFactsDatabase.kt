@@ -3,6 +3,8 @@ package languify.app.Classes.Databases
 import languify.Language
 import languify.LanguageFacts
 
+// TODO ADD MORE DATABASE ITEMS!!!!
+
 val languageFactsDatabaseItems: List<LanguageFacts> = listOf (
     // LATIN LANGUAGES
 //    LanguageFacts(1, "italian", "Ciao","arrivederci", "Come stai", 63000000, listOf("Italy","Canada","Spain"), listOf("Italy","Canada","America") ),
