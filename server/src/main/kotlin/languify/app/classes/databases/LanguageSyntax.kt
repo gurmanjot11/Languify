@@ -38,7 +38,7 @@ data class LanguageSyntax(
     }
 }
 //navigator for data class
-object LanguageSyntaxDatabase
+class LanguageSyntaxDatabaseHelper
 {
     private val languagesInDatabase = mutableListOf<LanguageSyntax>()
     private var nextID = 1
@@ -71,9 +71,6 @@ object LanguageSyntaxDatabase
         val codeRange = getLanguageUnicode(language)
         return text.checkIfInUnicodeRange(codeRange)
     }
-
-    //companion object Factory
-    //{
-    //fu
-    //}
 }
+
+
