@@ -17,7 +17,7 @@ data class LanguageSyntax(
     //check what this does and if it works, autogen by intellij
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (javaClass != other?.javaClass) return false
+//        if (javaClass != other?.javaClass) return false
 
         other as LanguageSyntax
 
@@ -38,7 +38,7 @@ data class LanguageSyntax(
     }
 }
 //navigator for data class
-class LanguageSyntaxDatabaseHelper
+object LanguageSyntaxDatabase
 {
     private val languagesInDatabase = mutableListOf<LanguageSyntax>()
     private var nextID = 1
@@ -72,6 +72,10 @@ class LanguageSyntaxDatabaseHelper
         return text.checkIfInUnicodeRange(codeRange)
     }
 
+
+
+    //companion object Factory
+    //{
+    //fu
+    //}
 }
-
-

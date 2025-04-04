@@ -65,6 +65,10 @@ android {
 }
 
 dependencies {
+    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation(libs.androidx.cardview)
     debugImplementation(compose.uiTooling)
+    implementation("com.github.bumptech.glide:glide:4.15.1")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.15.1")
 }
 
