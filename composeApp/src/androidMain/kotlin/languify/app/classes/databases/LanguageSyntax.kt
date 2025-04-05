@@ -38,13 +38,24 @@ data class LanguageSyntax(
     }
 }
 //navigator for data class
-object LanguageSyntaxDatabase
-{
-    private val languagesInDatabase = mutableListOf<LanguageSyntax>()
+class LanguageSyntaxDatabase() {
+    private var languagesInDatabase = mutableListOf<LanguageSyntax>()
     private var nextID = 1
 
+    init {
+        addLanguage(Language.KOREAN, Script.UNIQUE, 0, 0)
+        addLanguage(Language.ARMENIAN, Script.UNIQUE, 0, 0)
+        addLanguage(Language.GEORGIAN, Script.UNIQUE, 0, 0)
+        addLanguage(Language.SINHALA, Script.UNIQUE, 0, 0)
+        addLanguage(Language.HEBREW, Script.UNIQUE, 0, 0)
+        addLanguage(Language.INUKTITUT, Script.UNIQUE, 0, 0)
+        addLanguage(Language.CHEROKEE, Script.UNIQUE, 0, 0)
+        addLanguage(Language.TAMIL, Script.UNIQUE, 0, 0)
+        addLanguage(Language.KHMER, Script.UNIQUE, 0, 0)
+    }
+
     //figure out how to make some of this stuff mutable
-    fun addLanguage(newName: Language, newCategory: Script, newUnicodeRangeUpper: Byte, newUnicodeRangeLower: Byte): LanguageSyntax
+    private fun addLanguage(newName: Language, newCategory: Script, newUnicodeRangeUpper: Byte, newUnicodeRangeLower: Byte): LanguageSyntax
     {
         val newLanguage = LanguageSyntax(
             id = nextID++,
@@ -57,25 +68,25 @@ object LanguageSyntaxDatabase
     }
 
     //this may have a bug for comparing enums
-    private fun findLanguageSyntax(language : Language): LanguageSyntax? {
-        return languagesInDatabase.find {it.name == language}
+    private fun findLanguageSyntax(language : Language): LanguageSyntax {
+
+        val result = languagesInDatabase.find {it.name == language}
+        if (result != null){
+            return result
+        }else{
+            return LanguageSyntax(-1,Language.NONE,Script.UNIQUE,byteArrayOf(0,0))
+        }
+
     }
 
 
     private fun getLanguageUnicode(language : Language): ByteArray {
-        val item : LanguageSyntax? = findLanguageSyntax(language)
-        return item?.unicodeRange ?: byteArrayOf(0,0)
+        val item : LanguageSyntax = findLanguageSyntax(language)
+        return item.unicodeRange
     }
 
     fun compareTextToLanguage(text : Text, language : Language): Boolean{
         val codeRange = getLanguageUnicode(language)
         return text.checkIfInUnicodeRange(codeRange)
     }
-
-
-
-    //companion object Factory
-    //{
-    //fu
-    //}
 }

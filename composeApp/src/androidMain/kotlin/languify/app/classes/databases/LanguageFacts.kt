@@ -10,22 +10,7 @@ data class LanguageFacts(
     val hello: String,
     val goodbye: String,
     val howAreYou: String,
+    //fun facts
     val numberOfSpeakers: String,
-    //list
     val officialLanguageCountries: List<String>
-//    val widelySpokenInCountries: List<String>,
 )
-
-
-/*
-    Determines the layout of the language facts
- */
-class LanguageFactsLayout {
-
-//    fun LanguageFactsLayout(){}
-
-    fun retrieveFacts(language: Language) : LanguageFacts {
-        return retrieveLanguageFact(language)
-    }
-
-}
