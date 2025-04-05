@@ -24,8 +24,9 @@ enum class Language {
 
     //arabic languages
     ARABIC,
-    FARSI,
-    DARI,
+    PERSIAN,
+    //FARSI,
+    //DARI,
     URDU,
     UYGHUR,
     KURDISH,
