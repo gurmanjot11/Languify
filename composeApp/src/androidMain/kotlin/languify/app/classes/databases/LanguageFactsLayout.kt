@@ -4,14 +4,15 @@ import languify.Language
 
 data class LanguageFacts(
     val id: Int,
-    val language: String,
+    val language: Language,
+    val languageName: String,
     //phrases to know
     val hello: String,
     val goodbye: String,
     val howAreYou: String,
     val numberOfSpeakers: String,
     //list
-    val officialLanguageCountries: List<String>,
+    val officialLanguageCountries: List<String>
 //    val widelySpokenInCountries: List<String>,
 )
 
