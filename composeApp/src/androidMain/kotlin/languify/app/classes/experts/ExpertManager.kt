@@ -2,6 +2,7 @@ package languify.app.classes.experts
 
 import languify.Language
 import languify.app.classes.Text
+import languify.app.classes.databases.LanguageSyntaxDatabase
 
 class ExpertManager
 {
@@ -12,7 +13,9 @@ class ExpertManager
     private val uniqueExpert: Expert = UniqueExpert()
     private val latinExpert: Expert = LatinExpert()
     private val arabicExpert: Expert = ArabicExpert()
-    fun determineLanguage(text: Text) : Language {
+
+
+    fun determineLanguage(text: Text, syntaxDatabase: LanguageSyntaxDatabase) : Language {
         var finalResult : Language = Language.NONE
         askExperts(text)
         if (uniqueResult!= Language.NONE){
@@ -28,10 +31,10 @@ class ExpertManager
         return finalResult
     }
 
-    private fun askExperts(text: Text){
-        uniqueResult = uniqueExpert.guessLanguage(text)
-        latinResult = latinExpert.guessLanguage(text)
-        arabicResult = arabicExpert.guessLanguage(text)
+    private fun askExperts(text: Text, syntaxDatabase: LanguageSyntaxDatabase){
+        uniqueResult = uniqueExpert.guessLanguage(text, syntaxDatabase)
+        latinResult = latinExpert.guessLanguage(text, syntaxDatabase)
+        arabicResult = arabicExpert.guessLanguage(text, syntaxDatabase)
     }
 
     private fun resetExpertResults(){

@@ -88,7 +88,7 @@ class LanguageFactsDatabase {
         return nextLanguage
     }
 
-    private fun findLanguageFacts(language : Language) : LanguageFacts {
+    fun getLanguageFacts(language : Language) : LanguageFacts {
         val result = languagesInDatabase.find { it.language == language }
         if (result != null){
             return result
