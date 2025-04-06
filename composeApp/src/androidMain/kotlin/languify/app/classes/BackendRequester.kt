@@ -2,32 +2,23 @@ package languify.app.classes
 
 import languify.app.classes.experts.ExpertManager
 import languify.Language
-import languify.app.classes.Text
-import languify.app.classes.TextObtainer
 import languify.app.classes.databases.LanguageFacts
-import languify.app.classes.databases.LanguageFactsLayout
+import languify.app.classes.databases.LanguageFactsDatabase
+import languify.app.classes.databases.LanguageSyntaxDatabase
 
 class BackendRequester {
-    //obtain from front end
 
-    //this will return language facts
-    //implemented
+    private val syntaxDatabase : LanguageSyntaxDatabase = LanguageSyntaxDatabase()
+    private val factsDatabase : LanguageFactsDatabase = LanguageFactsDatabase()
+    private val textObtainer = TextObtainer()
+    private val expertManager: ExpertManager = ExpertManager()
 
-    fun detectLanguage(input: String) : String {
-        val textObtainer: TextObtainer = TextObtainer()
+
+    fun detectLanguage(input: String) : LanguageFacts {
         val text : Text = textObtainer.stringToTextObject(input)
-
-        val expertManager: ExpertManager = ExpertManager()
-        val language: Language = expertManager.determineLanguage(text)
-
-        val languageFactsLayout = LanguageFactsLayout()
-        val facts: LanguageFacts = languageFactsLayout.retrieveFacts(language)
-
-        //send to front end
-
-//        return facts
-//        return Language.ENGLISH
-        return "HI"
+        val language : Language = expertManager.determineLanguage(text,syntaxDatabase)
+        val factsForDisplay : LanguageFacts = factsDatabase.getLanguageFacts(language)
+        return factsForDisplay
 
     }
 }

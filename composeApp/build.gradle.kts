@@ -16,9 +16,8 @@ kotlin {
             jvmTarget.set(JvmTarget.JVM_11)
         }
     }
-    
+
     sourceSets {
-        
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
@@ -47,6 +46,9 @@ android {
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
         versionName = "1.0"
+        multiDexEnabled = true
+        vectorDrawables.useSupportLibrary = true
+        manifestPlaceholders["pdftronLicenseKey"] = ""
     }
     packaging {
         resources {
@@ -70,5 +72,17 @@ dependencies {
     debugImplementation(compose.uiTooling)
     implementation("com.github.bumptech.glide:glide:4.15.1")
     annotationProcessor("com.github.bumptech.glide:compiler:4.15.1")
+
+    // PDFTron dependencies
+    implementation("com.pdftron:pdftron:11.0.0")
+    implementation("com.pdftron:tools:11.0.0")
+    implementation("androidx.multidex:multidex:2.0.1")
+    implementation(libs.detectlanguage)
+
 }
 
+repositories {
+    google()
+    mavenCentral()
+    maven { url = uri("https://pdftron-maven.s3.amazonaws.com/release") }
+}

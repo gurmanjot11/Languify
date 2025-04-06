@@ -36,7 +36,7 @@
         app:layout_constraintVertical_bias="0.759" />
 
     <TextView
-        android:id="@+id/tvPut"
+        android:id="@+id/tvInputHint"
         android:layout_width="338dp"
         android:layout_height="70dp"
         android:text="Copy/Paste Text Below:"
