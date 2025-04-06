@@ -11,9 +11,9 @@ class UniqueExpert : Expert {
 
         var guess : Language = Language.NONE
 
-        if (syntaxDatabase.compareTextToLanguage(text, Language.KOREAN)){
-            guess = Language.KOREAN
-        }else if (syntaxDatabase.compareTextToLanguage(text, Language.ARMENIAN)){
+        //if (syntaxDatabase.compareTextToLanguage(text, Language.KOREAN)){
+        //    guess = Language.KOREAN
+        if (syntaxDatabase.compareTextToLanguage(text, Language.ARMENIAN)){
             guess = Language.ARMENIAN
         }else if (syntaxDatabase.compareTextToLanguage(text, Language.GEORGIAN)){
             guess = Language.GEORGIAN
@@ -32,7 +32,6 @@ class UniqueExpert : Expert {
         }else{
             guess = Language.NONE
         }
-
         return guess
     }
 

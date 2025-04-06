@@ -2,6 +2,8 @@ package languify.app.classes.databases;
 
 import languify.Language
 import languify.app.classes.Text
+import java.io.File
+
 
 class ResultLog{
     private var counter = 0
@@ -24,6 +26,21 @@ class ResultLog{
             println(" [$key]   $resultString")
         }
         println("-- END OF RESULTS--")
+    }
+    fun exportToTXT(){
+        val sortedKeys = log.keys.toList().sorted()
+        val file = File("output.txt")
+        val lines = mutableListOf<String>()
+
+        lines.add("-- RESULT LOG --")
+        for (key in sortedKeys) {
+            val correspondingResult = log.get(key)
+            val resultString = correspondingResult!!.getStringSummary()
+            lines.add(" [$key]   $resultString")
+        }
+        lines.add("-- END OF RESULTS--")
+
+
     }
 
 

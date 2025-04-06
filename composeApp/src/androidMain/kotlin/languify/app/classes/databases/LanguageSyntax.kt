@@ -3,6 +3,8 @@ package languify.app.classes.databases
 import languify.Language
 import languify.Script
 import languify.app.classes.Text
+import java.lang.Character.UnicodeBlock
+
 
 data class LanguageSyntax(
     val id: Int,
@@ -10,31 +12,8 @@ data class LanguageSyntax(
     //unique, latin, arabic
     //maybe remove this idk
     val category: Script,
-    val unicodeRange: ByteArray
+    val unicodeBlock: UnicodeBlock
     //val unicodeRangeLower: Int
     //val unicodeRangeUpper: Int
 
-) {
-    //check what this does and if it works, autogen by intellij
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-//        if (javaClass != other?.javaClass) return false
-
-        other as LanguageSyntax
-
-        if (id != other.id) return false
-        if (name != other.name) return false
-        if (category != other.category) return false
-        if (!unicodeRange.contentEquals(other.unicodeRange)) return false
-
-        return true
-    }
-
-    override fun hashCode(): Int {
-        var result = id
-        result = 31 * result + name.hashCode()
-        result = 31 * result + category.hashCode()
-        result = 31 * result + unicodeRange.contentHashCode()
-        return result
-    }
-}
+)
