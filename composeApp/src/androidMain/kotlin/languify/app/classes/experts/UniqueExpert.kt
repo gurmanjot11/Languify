@@ -32,7 +32,6 @@ class UniqueExpert : Expert {
         }else{
             guess = Language.NONE
         }
-
         return guess
     }
 
