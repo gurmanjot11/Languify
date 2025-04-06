@@ -43,8 +43,8 @@ class LanguageFactsDatabase {
         addLanguage(12, Language.URDU,"Urdu", "Helo (ہیلو )", "Aluda (الوداع)", "Aap kaise hain? (آپ کیسے ہیں؟)", "230 million total",
             listOf("Pakistan", "India "))
 
-        addLanguage(13, Language.UYGHUR,"Uyghur", "Essalamu eleykum", "Khayr khosh", "Qandaq ehwaliŋiz? (قانداق ئەھۋالىڭىز؟)", "10–12 million",
-            listOf("China (regional official status in Xinjiang Uyghur Autonomous Region)"))
+        //addLanguage(13, Language.UYGHUR,"Uyghur", "Essalamu eleykum", "Khayr khosh", "Qandaq ehwaliŋiz? (قانداق ئەھۋالىڭىز؟)", "10–12 million",
+        //    listOf("China (regional official status in Xinjiang Uyghur Autonomous Region)"))
 
         addLanguage(14, Language.KURDISH,"Kurdish", "Slav", "Bi xatirê te", "Kurmanji: Tu çawa yî?, Sorani: Çon î? ", "30–40 million",
             listOf("Iraq (official in Kurdistan Region)", "Syria (de facto in Kurdish-controlled areas)", "Turkey (limited recognition)"))
