@@ -77,6 +77,8 @@ dependencies {
     implementation("com.pdftron:pdftron:11.0.0")
     implementation("com.pdftron:tools:11.0.0")
     implementation("androidx.multidex:multidex:2.0.1")
+    implementation(libs.detectlanguage)
+
 }
 
 repositories {

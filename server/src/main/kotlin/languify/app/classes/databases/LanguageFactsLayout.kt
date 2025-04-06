@@ -9,10 +9,10 @@ data class LanguageFacts(
     val hello: String,
     val goodbye: String,
     val howAreYou: String,
-    val numberOfSpeakers: Int,
+    val numberOfSpeakers: String,
     //list
     val officialLanguageCountries: List<String>,
-    val widelySpokenInCountries: List<String>,
+//    val widelySpokenInCountries: List<String>,
 )
 
 
@@ -24,7 +24,7 @@ class LanguageFactsLayout {
 //    fun LanguageFactsLayout(){}
 
     fun retrieveFacts(language: Language) : LanguageFacts {
-        return retrieveLanguageFact(language.toString())
+        return retrieveLanguageFact(language)
     }
 
 }
