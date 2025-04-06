@@ -32,7 +32,7 @@ class InputPage:ComponentActivity()  {
     }
 
     fun sendBackendInput(input: String) {
-        val backend : BackendRequester = BackendRequester()
-        backend.detectLanguage(input)
+//        val backend : BackendRequester = BackendRequester()
+//        backend.detectLanguage(input)
     }
 }

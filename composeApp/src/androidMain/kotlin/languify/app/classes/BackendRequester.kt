@@ -15,7 +15,7 @@ class BackendRequester {
     private val expertManager: ExpertManager = ExpertManager()
 
 
-    fun detectLanguage(input: String) : LanguageFacts {
+    suspend fun detectLanguage(input: String) : LanguageFacts {
         val text : Text = textObtainer.stringToTextObject(input)
         Log.i("DEBUGGING BACKEND", "text value" )
         Log.i("DEBUGGING BACKEND", text.toString())

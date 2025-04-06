@@ -6,10 +6,12 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.ComponentActivity
+import androidx.lifecycle.lifecycleScope
 import com.pdftron.pdf.PDFDoc
 import com.pdftron.pdf.PDFNet
 import com.pdftron.pdf.TextExtractor
 import com.pdftron.pdf.config.PDFNetConfig
+import kotlinx.coroutines.launch
 import languify.app.classes.BackendRequester
 import languify.app.classes.databases.LanguageFacts
 import java.io.InputStream
@@ -82,16 +84,20 @@ class InputPDFPage: ComponentActivity() {
             Log.i("PDFANSWER", "***************************PRESSING THE IDENTIFY BUTTON***************************************")
             Log.i("PDFANSWER", storedExtractedText)
 
-            var result : LanguageFacts = sendBackendInput(storedExtractedText)
-            Log.i("PDFANSWER", "GOT BACK FEEDBACK")
-            Log.i("PDFANSWER", "---------------------------------------------")
-            Log.i("PDFANSWER", result.languageName)
+//            var result : LanguageFacts = sendBackendInput(storedExtractedText)
+            lifecycleScope.launch {
+                val result = BackendRequester().detectLanguage(storedExtractedText)
+                // Use the detected language
+                Log.i("PDFANSWER", "GOT BACK FEEDBACK")
+                Log.i("PDFANSWER", "---------------------------------------------")
+                Log.i("PDFANSWER", result.languageName)
+            }
         }
     }
 
-    fun sendBackendInput(input: String) : LanguageFacts {
-        val backend : BackendRequester = BackendRequester()
-        return backend.detectLanguage(input)
+    fun sendBackendInput(input: String) {
+//        val backend : BackendRequester = BackendRequester()
+//        return backend.detectLanguage(input)
     }
 
     private fun selectPdfFromStorage() {

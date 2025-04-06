@@ -5,5 +5,5 @@ import languify.app.classes.Text
 import languify.app.classes.databases.LanguageSyntaxDatabase
 
 interface Expert {
-    fun guessLanguage(text: Text, syntaxDatabase: LanguageSyntaxDatabase): Language
+    suspend fun guessLanguage(text: Text, syntaxDatabase: LanguageSyntaxDatabase): Language
 }

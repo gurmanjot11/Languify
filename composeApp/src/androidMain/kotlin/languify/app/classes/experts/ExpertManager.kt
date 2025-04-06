@@ -15,7 +15,7 @@ class ExpertManager
     private val arabicExpert: Expert = ArabicExpert()
 
 
-    fun determineLanguage(text: Text, syntaxDatabase: LanguageSyntaxDatabase) : Language {
+    suspend fun determineLanguage(text: Text, syntaxDatabase: LanguageSyntaxDatabase) : Language {
         var finalResult : Language = Language.NONE
         askExperts(text, syntaxDatabase)
         if (uniqueResult!= Language.NONE){
@@ -31,7 +31,7 @@ class ExpertManager
         return finalResult
     }
 
-    private fun askExperts(text: Text, syntaxDatabase: LanguageSyntaxDatabase){
+    suspend private fun askExperts(text: Text, syntaxDatabase: LanguageSyntaxDatabase){
         uniqueResult = uniqueExpert.guessLanguage(text, syntaxDatabase)
         latinResult = latinExpert.guessLanguage(text, syntaxDatabase)
         arabicResult = arabicExpert.guessLanguage(text, syntaxDatabase)

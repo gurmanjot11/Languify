@@ -6,7 +6,7 @@ import languify.app.classes.databases.LanguageSyntaxDatabase
 
 class UniqueExpert : Expert {
 
-    override fun guessLanguage(text: Text, syntaxDatabase : LanguageSyntaxDatabase): Language {
+    override suspend fun guessLanguage(text: Text, syntaxDatabase : LanguageSyntaxDatabase): Language {
 
 
         var guess : Language = Language.NONE
