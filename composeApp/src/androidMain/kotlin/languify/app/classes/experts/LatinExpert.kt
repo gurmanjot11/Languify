@@ -12,6 +12,18 @@ import kotlinx.coroutines.withContext
 
 // English, French, Spanish, French, portugese, german, turkish, polish, vietnamese
 class LatinExpert: Expert {
+
+    override fun guessLanguage(text: Text, syntaxDatabase: LanguageSyntaxDatabase): Language {
+        try {
+                val apiKey = loadApiKey()
+                DetectLanguage.apiKey = apiKey
+            } catch (e: Exception) {
+                //Language.NONE
+                error("failed to load api for latin expert")
+            }
+        val result = DetectLanguage.simpleDetect(text.getString())
+        val lang = Language.toLanguage(result)
+
     override suspend fun guessLanguage(text: Text, syntaxDatabase: LanguageSyntaxDatabase): Language {
         return withContext(Dispatchers.IO) {
             try {

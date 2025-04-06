@@ -11,7 +11,24 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 class ArabicExpert: Expert {
-    override suspend fun guessLanguage(text: Text, syntaxDatabase: LanguageSyntaxDatabase): Language {
+
+    override fun guessLanguage(text: Text, syntaxDatabase : LanguageSyntaxDatabase): Language {
+        try {
+            val apiKey = loadApiKey()
+            DetectLanguage.apiKey = apiKey
+        } catch (e: Exception) {
+            return Language.NONE
+        }
+        val result = DetectLanguage.simpleDetect(text.getString())
+        val lang = Language.toLanguage(result)
+
+        try {
+            val resultNotNull: Language = lang!!
+            return checkLanguage(resultNotNull)
+        } catch (npe: NullPointerException) {
+            return Language.NONE
+    
+          override suspend fun guessLanguage(text: Text, syntaxDatabase: LanguageSyntaxDatabase): Language {
         return withContext(Dispatchers.IO) {
             try {
                 val apiKey = loadApiKey()
@@ -24,6 +41,7 @@ class ArabicExpert: Expert {
             } catch (e: Exception) {
                 Language.NONE
             }
+
         }
     }
 
