@@ -9,18 +9,18 @@
     <ImageView
         android:id="@+id/ivAnimationLogo"
         android:layout_width="651dp"
-        android:layout_height="678dp"
+        android:layout_height="600dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.259" />
 
     <ImageButton
         android:id="@+id/btEnter"
         android:layout_width="113dp"
         android:layout_height="111dp"
-        android:layout_marginStart="352dp"
+        android:layout_marginStart="316dp"
         android:background="@drawable/round_button"
         android:elevation="5dp"
         android:paddingStart="20dp"
@@ -34,12 +34,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.903" />
+        app:layout_constraintVertical_bias="0.9" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvApp"
-        android:layout_width="318dp"
-        android:layout_height="200dp"
+        android:layout_width="291dp"
+        android:layout_height="146dp"
         android:background="#020202"
         app:cardCornerRadius="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -59,7 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Langufiy"
+                android:text="Languify"
                 android:textColor="#070707"
                 android:textSize="48sp"
                 android:textStyle="bold" />
@@ -71,8 +71,8 @@
                 android:gravity="center"
                 android:text="The Language Expert"
                 android:textColor="#090909"
-                android:textSize="34sp"
-                android:textStyle="bold" />
+                android:textSize="28sp"
+                android:textStyle="normal" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
