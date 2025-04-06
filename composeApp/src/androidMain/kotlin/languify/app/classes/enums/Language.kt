@@ -28,7 +28,7 @@ enum class Language {
     //FARSI,
     //DARI,
     URDU,
-    UYGHUR,
+    //UYGHUR,
     KURDISH,
     PASHTO,
 
