@@ -10,7 +10,9 @@ class LanguageSyntaxDatabase {
     private var nextID = 1
 
     init {
-        addLanguage(Language.KOREAN, Script.UNIQUE, UnicodeBlock.HANGUL_JAMO)
+        //addLanguage(Language.KOREAN, Script.UNIQUE, UnicodeBlock.HANGUL_SYLLABLES)
+        //addLanguage(Language.KOREAN, Script.UNIQUE, UnicodeBlock.HANGUL_JAMO)
+
         addLanguage(Language.ARMENIAN, Script.UNIQUE, UnicodeBlock.ARMENIAN)
         addLanguage(Language.GEORGIAN, Script.UNIQUE, UnicodeBlock.GEORGIAN)
         addLanguage(Language.SINHALA, Script.UNIQUE, UnicodeBlock.SINHALA)
