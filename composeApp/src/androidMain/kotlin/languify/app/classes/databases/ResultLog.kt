@@ -40,7 +40,9 @@ class ResultLog{
         }
         lines.add("-- END OF RESULTS--")
 
-
+        file.printWriter().use { out ->
+            lines.forEach { out.println(it) }
+        }
     }
 
 
