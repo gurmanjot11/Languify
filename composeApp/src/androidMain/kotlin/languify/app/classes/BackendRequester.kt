@@ -8,15 +8,15 @@ import languify.app.classes.databases.LanguageSyntaxDatabase
 
 class BackendRequester {
 
-    private var syntaxDatabase : LanguageSyntaxDatabase = LanguageSyntaxDatabase()
-    private var factsDatabase : LanguageFactsDatabase = LanguageFactsDatabase()
+    private val syntaxDatabase : LanguageSyntaxDatabase = LanguageSyntaxDatabase()
+    private val factsDatabase : LanguageFactsDatabase = LanguageFactsDatabase()
     private val textObtainer = TextObtainer()
     private val expertManager: ExpertManager = ExpertManager()
 
 
     fun detectLanguage(input: String) : LanguageFacts {
         val text : Text = textObtainer.stringToTextObject(input)
-        val language : Language = expertManager.determineLanguage(text)
+        val language : Language = expertManager.determineLanguage(text,syntaxDatabase)
         val factsForDisplay : LanguageFacts = factsDatabase.getLanguageFacts(language)
         return factsForDisplay
 

@@ -17,7 +17,7 @@ class ExpertManager
 
     fun determineLanguage(text: Text, syntaxDatabase: LanguageSyntaxDatabase) : Language {
         var finalResult : Language = Language.NONE
-        askExperts(text)
+        askExperts(text, syntaxDatabase)
         if (uniqueResult!= Language.NONE){
             finalResult = uniqueResult
         }else if (latinResult!= Language.NONE){
