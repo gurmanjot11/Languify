@@ -19,7 +19,7 @@ class ExpertManager
     private val log: ResultLog = ResultLog()
 
 
-    fun determineLanguage(text: Text, syntaxDatabase: LanguageSyntaxDatabase) : Language {
+    fun determineLanguage(text: Text, syntaxDatabase: LanguageSyntaxDatabase) : Result {
         var finalResult : Language = Language.NONE
         askExperts(text, syntaxDatabase)
         if (uniqueResult!= Language.NONE){
@@ -36,9 +36,9 @@ class ExpertManager
         val result = Result(text, latinResult, arabicResult, uniqueResult, finalResult)
         log.addResult(result)
         // *******need to print the logged result to the logger
-
+        
         resetExpertResults()
-        return finalResult
+        return result
     }
 
     private fun askExperts(text: Text, syntaxDatabase: LanguageSyntaxDatabase){

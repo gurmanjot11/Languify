@@ -36,4 +36,9 @@ class Result(inputStr: Text, latinRes: Language, arabicRes: Language, uniqueRes:
     fun verifyCorrectness(actualCorrectness: Correctness){
         correctness=actualCorrectness
     }
+
+    fun getStringSummary(): String {
+        val summary = "Decoded Text: ${inputString.getString()} || Expert Results (Latin,Arabic,Unique): $latinResult, $arabicResult, $uniqueResult || Final Result: $overallResult || Correctness: $correctness\n"
+        return summary
+    }
 }
