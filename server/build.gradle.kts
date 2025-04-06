@@ -24,7 +24,7 @@ dependencies {
     implementation(libs.logback)
     implementation(libs.ktor.server.core)
     implementation(libs.ktor.server.netty)
-    testImplementation(libs.ktor.server.tests)
+    testImplementation("io.ktor:ktor-server-tests-jvm:2.3.7")
     testImplementation(libs.kotlin.test.junit)
 
     implementation(libs.ktor.server.default.headers)
@@ -40,4 +40,5 @@ dependencies {
     implementation(libs.logback.classic)
     implementation(libs.ktor.server.config.yaml)
     testImplementation(libs.ktor.server.test.host)
+
 }

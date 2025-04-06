@@ -3,16 +3,16 @@ package languify.app.classes.experts
 import languify.Language
 import languify.app.classes.Text
 import languify.app.classes.databases.LanguageSyntaxDatabase
-
+import com.detectlanguage.DetectLanguage
 
 import java.io.File
 import java.util.Properties
-
-import com.detectlanguage.DetectLanguage
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 class ArabicExpert: Expert {
-    override fun guessLanguage(text: Text, syntaxDatabase : LanguageSyntaxDatabase): Language {
 
+    override fun guessLanguage(text: Text, syntaxDatabase : LanguageSyntaxDatabase): Language {
         try {
             val apiKey = loadApiKey()
             DetectLanguage.apiKey = apiKey
@@ -27,22 +27,32 @@ class ArabicExpert: Expert {
             return checkLanguage(resultNotNull)
         } catch (npe: NullPointerException) {
             return Language.NONE
+    
+          override suspend fun guessLanguage(text: Text, syntaxDatabase: LanguageSyntaxDatabase): Language {
+        return withContext(Dispatchers.IO) {
+            try {
+                val apiKey = loadApiKey()
+                DetectLanguage.apiKey = apiKey
+
+                val result = DetectLanguage.simpleDetect(text.getString())
+                val lang = Language.toLanguage(result)
+
+                checkLanguage(lang ?: Language.NONE)
+            } catch (e: Exception) {
+                Language.NONE
+            }
+
         }
     }
 
     private fun checkLanguage(language: Language): Language {
-        if (language.equals(Language.ARABIC)) {
-            return Language.ARABIC
-        } else if (language.equals(Language.PERSIAN)) {
-            return Language.PERSIAN
-        } else if (language.equals(Language.URDU)) {
-            return Language.URDU
-        } else if (language.equals(Language.KURDISH)) {
-            return Language.KURDISH
-        } else if (language.equals(Language.PASHTO)) {
-            return Language.PASHTO
-        } else {
-            return Language.NONE
+        return when (language) {
+            Language.ARABIC -> Language.ARABIC
+            Language.PERSIAN -> Language.PERSIAN
+            Language.URDU -> Language.URDU
+            Language.KURDISH -> Language.KURDISH
+            Language.PASHTO -> Language.PASHTO
+            else -> Language.NONE
         }
     }
 

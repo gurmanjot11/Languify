@@ -8,7 +8,7 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="287dp"
-        android:layout_height="428dp"
+        android:layout_height="400dp"
         android:src="@drawable/img_logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -17,12 +17,13 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/tvPut"
+        android:id="@+id/tvExtractHint"
         android:layout_width="361dp"
-        android:layout_height="130dp"
-        android:text="Choose Your Input For Identifying Language"
+        android:layout_height="70dp"
+        android:text="Choose Input Type:"
+        android:textAlignment="center"
         android:textColor="#0D0D0D"
-        android:textSize="34sp"
+        android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,19 +34,20 @@
 
     <Button
         android:id="@+id/btText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="221dp"
+        android:layout_height="70dp"
         android:background="@android:color/background_dark"
         android:padding="15dp"
         android:text="Text Input"
         android:textColor="#FFFFFF"
-        android:textSize="34sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.678" />
+        app:layout_constraintVertical_bias="0.653" />
 
     <Button
         android:id="@+id/btPDF"
@@ -55,29 +57,30 @@
         android:padding="15dp"
         android:text="PDF"
         android:textColor="#FFFFFF"
-        android:textSize="34sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.823" />
+        app:layout_constraintVertical_bias="0.791" />
 
     <Button
         android:id="@+id/btIMG"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="221dp"
+        android:layout_height="70dp"
         android:background="@android:color/background_dark"
         android:padding="15dp"
-        android:text="Image(JPG)"
+        android:text="Image (JPG)"
         android:textColor="#FFFFFF"
-        android:textSize="34sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.958" />
+        app:layout_constraintVertical_bias="0.927" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
