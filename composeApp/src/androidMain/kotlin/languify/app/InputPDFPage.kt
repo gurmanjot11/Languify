@@ -44,69 +44,74 @@ class InputPDFPage: ComponentActivity() {
             selectPdfFromStorage()
         }
 
-        buttonIdentify.setOnClickListener {
-            val inputStream =this.inputStream
-            try {
-                val doc = PDFDoc(inputStream)
-                val page = doc.getPage(1)
 
-                val txt = TextExtractor()
-                txt.begin(page!!)  // Read the page.
 
-                // Create a StringBuilder to build the extracted text
-                val extractedText = StringBuilder()
+            buttonIdentify.setOnClickListener {
+                val inputStream = this.inputStream
+                try {
+                    val doc = PDFDoc(inputStream)
+                    val page = doc.getPage(1)
 
-                var word: TextExtractor.Word
-                var line: TextExtractor.Line = txt.firstLine
-                while (line.isValid) {
-                    word = line.firstWord
-                    while (word.isValid) {
-                        // Append each word to our text
-                        extractedText.append(word.string)
-                        extractedText.append(" ")  // Add a space between words
-                        word = word.nextWord
+                    val txt = TextExtractor()
+                    txt.begin(page!!)  // Read the page.
+
+                    // Create a StringBuilder to build the extracted text
+                    val extractedText = StringBuilder()
+
+                    var word: TextExtractor.Word
+                    var line: TextExtractor.Line = txt.firstLine
+                    while (line.isValid) {
+                        word = line.firstWord
+                        while (word.isValid) {
+                            // Append each word to our text
+                            extractedText.append(word.string)
+                            extractedText.append(" ")  // Add a space between words
+                            word = word.nextWord
+                        }
+                        extractedText.append("\n")  // Add a newline at the end of each line
+                        line = line.nextLine
                     }
-                    extractedText.append("\n")  // Add a newline at the end of each line
-                    line = line.nextLine
+                    storedExtractedText = extractedText.toString()
+                    Log.i("TESTINGPDF", extractedText.toString())
+                    inputText.setText(extractedText.toString())
+
+                } catch (e: Exception) {
+                    // Handle any exceptions
+                    e.printStackTrace()
+                    Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_LONG).show()
                 }
-                storedExtractedText = extractedText.toString()
-                Log.i("TESTINGPDF", extractedText.toString())
-                inputText.setText(extractedText.toString())
-
-            } catch (e: Exception) {
-                // Handle any exceptions
-                e.printStackTrace()
-                Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_LONG).show()
             }
-        }
 
-        buttonIdentifyReal.setOnClickListener{
-            Log.i("PDFANSWER", "***************************PRESSING THE IDENTIFY BUTTON***************************************")
-            Log.i("PDFANSWER", storedExtractedText)
-        butonIdentifyReal.setOnClickListener{
-            Log.i("DEBUGGING BACKEND", "***************************PRESSING THE IDENTIFY BUTTON***************************************")
-            Log.i("DEBUGGING BACKEND", storedExtractedText)
+            buttonIdentifyReal.setOnClickListener {
+                Log.i(
+                    "PDFANSWER",
+                    "***************************PRESSING THE IDENTIFY BUTTON***************************************"
+                )
+                Log.i("PDFANSWER", storedExtractedText)
+                buttonIdentifyReal.setOnClickListener {
+                    Log.i(
+                        "DEBUGGING BACKEND",
+                        "***************************PRESSING THE IDENTIFY BUTTON***************************************"
+                    )
+                    Log.i("DEBUGGING BACKEND", storedExtractedText)
 
 //            var result : LanguageFacts = sendBackendInput(storedExtractedText)
-            lifecycleScope.launch {
-                val result = BackendRequester().detectLanguage(storedExtractedText)
-                // Use the detected language
-                Log.i("DEBUGGING BACKEND", "INPUT")
-                Log.i("DEBUGGING BACKEND", storedExtractedText)
+                    lifecycleScope.launch {
+                        val result = BackendRequester().detectLanguage(storedExtractedText)
+                        // Use the detected language
+                        Log.i("DEBUGGING BACKEND", "INPUT")
+                        Log.i("DEBUGGING BACKEND", storedExtractedText)
 
-                Log.i("DEBUGGING BACKEND", "GOT BACK FEEDBACK")
-                Log.i("DEBUGGING BACKEND", "---------------------------------------------")
-                Log.i("DEBUGGING BACKEND", result.languageName)
+                        Log.i("DEBUGGING BACKEND", "GOT BACK FEEDBACK")
+                        Log.i("DEBUGGING BACKEND", "---------------------------------------------")
+                        Log.i("DEBUGGING BACKEND", result.languageName)
+                    }
+                }
             }
+
+
         }
-    }
-
-    fun sendBackendInput(input: String) {
-//        val backend : BackendRequester = BackendRequester()
-//        return backend.detectLanguage(input)
-    }
-
-    private fun selectPdfFromStorage() {
+    fun selectPdfFromStorage() {
         pdfAccessManager.openPdfFromStorage { inputStream, error ->
             if (error != null) {
                 Log.e("PDFAccess", "Error: ${error.message}")
@@ -116,4 +121,4 @@ class InputPDFPage: ComponentActivity() {
             }
         }
     }
-}
+    }

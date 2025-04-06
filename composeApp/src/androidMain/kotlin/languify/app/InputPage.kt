@@ -15,7 +15,6 @@ import languify.app.classes.experts.UniqueExpert
 
 class InputPage:ComponentActivity()  {
     //var backend = BackendRequester()
-    //var uniqueExpert = UniqueExpert()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
