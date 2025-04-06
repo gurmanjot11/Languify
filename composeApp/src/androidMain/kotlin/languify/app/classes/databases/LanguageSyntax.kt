@@ -8,6 +8,7 @@ data class LanguageSyntax(
     val id: Int,
     val name: Language,
     //unique, latin, arabic
+    //maybe remove this idk
     val category: Script,
     val unicodeRange: ByteArray
     //val unicodeRangeLower: Int
