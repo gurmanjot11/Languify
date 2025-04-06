@@ -59,7 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Langufiy"
+                android:text="Languify"
                 android:textColor="#070707"
                 android:textSize="48sp"
                 android:textStyle="bold" />
