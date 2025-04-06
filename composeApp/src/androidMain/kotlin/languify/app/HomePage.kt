@@ -22,6 +22,7 @@ class HomePage:ComponentActivity() {
             val intent = Intent(this, InputPDFPage::class.java)
             startActivity(intent)
         }
+
     }
 
 

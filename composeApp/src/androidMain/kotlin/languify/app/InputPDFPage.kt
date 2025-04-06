@@ -11,11 +11,13 @@ import com.pdftron.pdf.PDFNet
 import com.pdftron.pdf.TextExtractor
 import com.pdftron.pdf.config.PDFNetConfig
 import languify.app.classes.BackendRequester
+import languify.app.classes.databases.LanguageFacts
 import java.io.InputStream
 
 class InputPDFPage: ComponentActivity() {
     private lateinit var pdfAccessManager: PdfAccessManager
     lateinit var inputStream : InputStream
+    lateinit var storedExtractedText : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -32,6 +34,8 @@ class InputPDFPage: ComponentActivity() {
         val inputText =findViewById<EditText>(R.id.mtPDFTextInputBox)
         val buttonIdentify = findViewById<Button>(R.id.btExtract)
         val buttonSelectPdf = findViewById<Button>(R.id.btSelectPdf)
+        // TODO GET BACKEND FEEDBACK -- Actual IDENTIFY BUTTON
+        val butonIdentifyReal = findViewById<Button>(R.id.btText)
         pdfAccessManager = PdfAccessManager(this)
 
         buttonSelectPdf.setOnClickListener {
@@ -63,21 +67,31 @@ class InputPDFPage: ComponentActivity() {
                     extractedText.append("\n")  // Add a newline at the end of each line
                     line = line.nextLine
                 }
-
+                storedExtractedText = extractedText.toString()
                 Log.i("TESTINGPDF", extractedText.toString())
                 inputText.setText(extractedText.toString())
-                //sendBackendInput(extractedText.toString())
+
             } catch (e: Exception) {
                 // Handle any exceptions
                 e.printStackTrace()
                 Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_LONG).show()
             }
         }
+
+        butonIdentifyReal.setOnClickListener{
+            Log.i("PDFANSWER", "***************************PRESSING THE IDENTIFY BUTTON***************************************")
+            Log.i("PDFANSWER", storedExtractedText)
+
+            var result : LanguageFacts = sendBackendInput(storedExtractedText)
+            Log.i("PDFANSWER", "GOT BACK FEEDBACK")
+            Log.i("PDFANSWER", "---------------------------------------------")
+            Log.i("PDFANSWER", result.languageName)
+        }
     }
 
-    fun sendBackendInput(input: String) {
+    fun sendBackendInput(input: String) : LanguageFacts {
         val backend : BackendRequester = BackendRequester()
-        backend.detectLanguage(input)
+        return backend.detectLanguage(input)
     }
 
     private fun selectPdfFromStorage() {
