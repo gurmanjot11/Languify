@@ -2,11 +2,14 @@ package languify.app
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 
 import androidx.activity.ComponentActivity
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 import languify.app.classes.BackendRequester
 import languify.app.classes.experts.UniqueExpert
 
@@ -30,6 +33,17 @@ class InputPage:ComponentActivity()  {
                     Toast.LENGTH_SHORT
                 ).show()
             }else{
+
+                lifecycleScope.launch {
+                    val result = BackendRequester().detectLanguage(input)
+                    // Use the detected language
+                    Log.i("DEBUGGING BACKEND", "INPUT")
+                    Log.i("DEBUGGING BACKEND", input)
+
+                    Log.i("DEBUGGING BACKEND", "GOT BACK FEEDBACK")
+                    Log.i("DEBUGGING BACKEND", "---------------------------------------------")
+                    Log.i("DEBUGGING BACKEND", result.languageName)
+                }
                 buttonIdentify.setText("Loading")
                 val intent = Intent(this, DisplayPage::class.java)
                 //val backendResponse = backend.detectLanguage(input)
@@ -38,9 +52,4 @@ class InputPage:ComponentActivity()  {
             }
         }
     }
-
-    //fun sendBackendInput(input: String) {
-    //    val backend : BackendRequester = BackendRequester()
-    //    backend.detectLanguage(input)
-    //}
 }
