@@ -35,7 +35,7 @@ class InputPDFPage: ComponentActivity() {
         val buttonIdentify = findViewById<Button>(R.id.btExtract)
         val buttonSelectPdf = findViewById<Button>(R.id.btSelectPdf)
         // TODO GET BACKEND FEEDBACK -- Actual IDENTIFY BUTTON
-        val butonIdentifyReal = findViewById<Button>(R.id.btText)
+        val buttonIdentifyReal = findViewById<Button>(R.id.btText)
         pdfAccessManager = PdfAccessManager(this)
 
         buttonSelectPdf.setOnClickListener {
@@ -78,7 +78,7 @@ class InputPDFPage: ComponentActivity() {
             }
         }
 
-        butonIdentifyReal.setOnClickListener{
+        buttonIdentifyReal.setOnClickListener{
             Log.i("PDFANSWER", "***************************PRESSING THE IDENTIFY BUTTON***************************************")
             Log.i("PDFANSWER", storedExtractedText)
 

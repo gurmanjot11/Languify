@@ -12,13 +12,15 @@ import com.detectlanguage.DetectLanguage
 
 class ArabicExpert: Expert {
     override fun guessLanguage(text: Text, syntaxDatabase : LanguageSyntaxDatabase): Language {
-
+        Thread {
         try {
             val apiKey = loadApiKey()
             DetectLanguage.apiKey = apiKey
         } catch (e: Exception) {
-            return Language.NONE
+            //return Language.NONE
+            error("failed to load api for arabic expert")
         }
+        }.start()
         val result = DetectLanguage.simpleDetect(text.getString())
         val lang = Language.toLanguage(result)
 
