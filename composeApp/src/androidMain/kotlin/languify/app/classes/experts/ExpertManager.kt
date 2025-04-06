@@ -3,6 +3,8 @@ package languify.app.classes.experts
 import languify.Language
 import languify.app.classes.Text
 import languify.app.classes.databases.LanguageSyntaxDatabase
+import languify.app.classes.databases.Result
+import languify.app.classes.databases.ResultLog
 
 class ExpertManager
 {
@@ -13,6 +15,8 @@ class ExpertManager
     private val uniqueExpert: Expert = UniqueExpert()
     private val latinExpert: Expert = LatinExpert()
     private val arabicExpert: Expert = ArabicExpert()
+
+    private val log: ResultLog = ResultLog()
 
 
     fun determineLanguage(text: Text, syntaxDatabase: LanguageSyntaxDatabase) : Language {
@@ -27,6 +31,12 @@ class ExpertManager
         }else{
             finalResult = Language.NONE
         }
+
+        //store the result
+        val result = Result(text, latinResult, arabicResult, uniqueResult, finalResult)
+        log.addResult(result)
+        // *******need to print the logged result to the logger
+
         resetExpertResults()
         return finalResult
     }
