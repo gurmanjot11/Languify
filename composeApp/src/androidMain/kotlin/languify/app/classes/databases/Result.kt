@@ -5,12 +5,12 @@ import languify.app.classes.Text
 import languify.app.classes.enums.Correctness
 
 class Result(inputStr: Text, latinRes: Language, arabicRes: Language, uniqueRes: Language, overallRes:Language) {
-    val inputString=inputStr
-    val latinResult = latinRes
-    val arabicResult = arabicRes
-    val uniqueResult = uniqueRes
-    val overallResult = overallRes
-    var correctness = Correctness.UNVERIFIED
+    private val inputString=inputStr
+    private val latinResult = latinRes
+    private val arabicResult = arabicRes
+    private val uniqueResult = uniqueRes
+    private val overallResult = overallRes
+    private var correctness = Correctness.UNVERIFIED
 
     fun getInputString():Text{
         return inputString
@@ -38,7 +38,8 @@ class Result(inputStr: Text, latinRes: Language, arabicRes: Language, uniqueRes:
     }
 
     fun getStringSummary(): String {
-        val summary = "Decoded Text: ${inputString.getString()} || Expert Results (Latin,Arabic,Unique): $latinResult, $arabicResult, $uniqueResult || Final Result: $overallResult || Correctness: $correctness\n"
+        val str = inputString.getString()
+        val summary = "Decoded Text: $str || Expert Results (Latin,Arabic,Unique): $latinResult, $arabicResult, $uniqueResult || Final Result: $overallResult || Correctness: $correctness"
         return summary
     }
 }

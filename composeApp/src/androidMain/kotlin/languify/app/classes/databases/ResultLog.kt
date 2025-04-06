@@ -15,6 +15,16 @@ class ResultLog{
     fun displayResultLog(){
         //******* need to do with the logger
     }
+    fun printResultLogToConsole(){
+        val sortedKeys = log.keys.toList().sorted()
+        println("-- RESULT LOG --")
+        for (key in sortedKeys){
+            val correspondingResult = log.get(key)
+            val resultString = correspondingResult!!.getStringSummary()
+            println(" [$key]   $resultString")
+        }
+        println("-- END OF RESULTS--")
+    }
 
 
 }
