@@ -1,5 +1,6 @@
 package languify.app.classes.experts
 
+import android.util.Log
 import languify.Language
 import languify.app.classes.Text
 import languify.app.classes.databases.LanguageSyntaxDatabase
@@ -35,6 +36,7 @@ class ExpertManager
         uniqueResult = uniqueExpert.guessLanguage(text, syntaxDatabase)
         latinResult = latinExpert.guessLanguage(text, syntaxDatabase)
         arabicResult = arabicExpert.guessLanguage(text, syntaxDatabase)
+//        Log.i("BA")
     }
 
     private fun resetExpertResults(){

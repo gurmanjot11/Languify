@@ -81,16 +81,19 @@ class InputPDFPage: ComponentActivity() {
         }
 
         butonIdentifyReal.setOnClickListener{
-            Log.i("PDFANSWER", "***************************PRESSING THE IDENTIFY BUTTON***************************************")
-            Log.i("PDFANSWER", storedExtractedText)
+            Log.i("DEBUGGING BACKEND", "***************************PRESSING THE IDENTIFY BUTTON***************************************")
+            Log.i("DEBUGGING BACKEND", storedExtractedText)
 
 //            var result : LanguageFacts = sendBackendInput(storedExtractedText)
             lifecycleScope.launch {
                 val result = BackendRequester().detectLanguage(storedExtractedText)
                 // Use the detected language
-                Log.i("PDFANSWER", "GOT BACK FEEDBACK")
-                Log.i("PDFANSWER", "---------------------------------------------")
-                Log.i("PDFANSWER", result.languageName)
+                Log.i("DEBUGGING BACKEND", "INPUT")
+                Log.i("DEBUGGING BACKEND", storedExtractedText)
+
+                Log.i("DEBUGGING BACKEND", "GOT BACK FEEDBACK")
+                Log.i("DEBUGGING BACKEND", "---------------------------------------------")
+                Log.i("DEBUGGING BACKEND", result.languageName)
             }
         }
     }
