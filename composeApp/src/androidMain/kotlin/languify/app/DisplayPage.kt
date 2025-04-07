@@ -12,7 +12,6 @@ class DisplayPage:ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.page_display)
 
-
         val id = intent.getIntExtra("ID", 0)
         val languageCode = intent.getStringExtra("LANGUAGE_CODE") ?: "NONE"
         val language = Language.valueOf(languageCode) // Convert back to enum
@@ -55,6 +54,5 @@ class DisplayPage:ComponentActivity() {
             val intent = Intent(this, HomePage::class.java)
             startActivity(intent)
         }
-
     }
 }
