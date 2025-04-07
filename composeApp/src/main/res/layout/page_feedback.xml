@@ -7,14 +7,15 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="161dp"
-        android:layout_height="262dp"
+        android:layout_width="260dp"
+        android:layout_height="290dp"
         android:src="@drawable/img_logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.006" />
+        app:layout_constraintVertical_bias="0.036" />
 
     <EditText
         android:id="@+id/mtTextFeedBackBox"
@@ -23,33 +24,33 @@
         android:background="@android:color/background_dark"
         android:ems="10"
         android:gravity="start|top"
-        android:hint="Thank you for using our app, please give us your feedback here :D."
+        android:hint="Thank you for using our app! Please give us your feedback here :D."
         android:inputType="textMultiLine"
         android:padding="15sp"
         android:textColor="#FDFDFD"
         android:textColorHint="#AFAFAF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.657" />
+        app:layout_constraintVertical_bias="0.614" />
 
     <TextView
         android:id="@+id/tvFeedbackHint"
         android:layout_width="338dp"
-        android:layout_height="70dp"
-        android:text="Type your feedback here"
+        android:layout_height="wrap_content"
+        android:text="Enter Your Feedback:"
         android:textAlignment="center"
         android:textColor="#0D0D0D"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.434" />
+        app:layout_constraintVertical_bias="0.402" />
 
     <Button
         android:id="@+id/btFeedBackGoBackHome"
@@ -63,26 +64,26 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.83" />
+        app:layout_constraintVertical_bias="0.801" />
 
     <Button
         android:id="@+id/homeButton"
-        android:layout_width="327dp"
-        android:layout_height="74dp"
+        android:layout_width="334dp"
+        android:layout_height="70dp"
         android:background="#000000"
-        android:padding="10dp"
+        android:padding="15dp"
         android:text="HOME"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.452"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.975" />
+        app:layout_constraintVertical_bias="0.927" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
