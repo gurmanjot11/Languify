@@ -24,10 +24,11 @@ class ArabicExpert: Expert {
             } catch (e: Exception) {
                 Language.NONE
             }
+
         }
     }
 
-    private fun checkLanguage(language: Language): Language {
+    private suspend fun checkLanguage(language: Language): Language {
         return when (language) {
             Language.ARABIC -> Language.ARABIC
             Language.PERSIAN -> Language.PERSIAN
@@ -38,7 +39,7 @@ class ArabicExpert: Expert {
         }
     }
 
-    private fun loadApiKey(): String? {
+    private suspend fun loadApiKey(): String? {
         val properties = Properties()
         val file = File("local.properties")
         if (file.exists()) {

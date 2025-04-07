@@ -12,8 +12,11 @@ import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 import languify.app.InputPDFPage
 import languify.app.classes.BackendRequester
+import languify.app.classes.experts.UniqueExpert
 
 class InputPage:ComponentActivity()  {
+    //var backend = BackendRequester()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.page_input)
@@ -22,14 +25,15 @@ class InputPage:ComponentActivity()  {
 
 
         buttonIdentify.setOnClickListener {
-            val input = inputText.toString()
-            if(input == ""){
+            val input = inputText.text.toString()
+            if(input.isEmpty()){
                 Toast.makeText(
                     this@InputPage,
                     "Please, do not enter empty input!",
                     Toast.LENGTH_SHORT
                 ).show()
             }else{
+
                 lifecycleScope.launch {
                     val result = BackendRequester().detectLanguage(input)
                     // Use the detected language
@@ -52,12 +56,7 @@ class InputPage:ComponentActivity()  {
                     startActivity(intent)
                 }
 
-
             }
         }
-    }
-
-    fun sendBackendInput(input: String) {
-
     }
 }
