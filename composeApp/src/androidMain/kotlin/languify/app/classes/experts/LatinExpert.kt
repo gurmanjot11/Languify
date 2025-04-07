@@ -15,6 +15,7 @@ import java.io.FileNotFoundException
 
 // English, French, Spanish, French, portugese, german, turkish, polish, vietnamese
 class LatinExpert: Expert {
+
     override suspend fun guessLanguage(text: Text, syntaxDatabase: LanguageSyntaxDatabase): Language {
         return withContext(Dispatchers.IO) {
             try {
