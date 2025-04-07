@@ -49,6 +49,9 @@ android {
         multiDexEnabled = true
         vectorDrawables.useSupportLibrary = true
         manifestPlaceholders["pdftronLicenseKey"] = ""
+        android.buildFeatures.buildConfig = true
+        buildConfigField("String", "DETECTLANGUAGE_API_KEY", "\"5537f206c669c3b12239c879c820a454\"")
+
     }
     packaging {
         resources {

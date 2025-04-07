@@ -20,7 +20,7 @@ class InputPage:ComponentActivity()  {
 
 
         buttonIdentify.setOnClickListener {
-            val input = inputText.toString()
+            val input = inputText.text.toString()
             if(input == ""){
                 Toast.makeText(
                     this@InputPage,

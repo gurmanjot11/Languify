@@ -28,6 +28,12 @@ class ExpertManager
         }else{
             finalResult = Language.NONE
         }
+        Log.i("DEBUGGING BACKEND", "Result from determineLanguage")
+        Log.i("DEBUGGING BACKEND", finalResult.toString())
+        Log.i("DEBUGGING BACKEND", uniqueResult.toString())
+        Log.i("DEBUGGING BACKEND", latinResult.toString())
+        Log.i("DEBUGGING BACKEND", arabicResult.toString())
+
         resetExpertResults()
         return finalResult
     }
