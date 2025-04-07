@@ -9,13 +9,14 @@ import java.io.File
 import java.util.Properties
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import languify.app.BuildConfig
 
 class ArabicExpert: Expert {
 
     override suspend fun guessLanguage(text: Text, syntaxDatabase: LanguageSyntaxDatabase): Language {
         return withContext(Dispatchers.IO) {
             try {
-                val apiKey = loadApiKey()
+                val apiKey = BuildConfig.DETECTLANGUAGE_API_KEY
                 DetectLanguage.apiKey = apiKey
 
                 val result = DetectLanguage.simpleDetect(text.getString())
