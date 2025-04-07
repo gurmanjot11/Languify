@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    id("com.google.gms.google-services")
 }
 
 kotlin {
@@ -70,6 +71,7 @@ android {
 }
 
 dependencies {
+
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation(libs.androidx.cardview)
     implementation(libs.androidx.media3.common.ktx)
@@ -83,6 +85,16 @@ dependencies {
     implementation("androidx.multidex:multidex:2.0.1")
     implementation(libs.detectlanguage)
 
+    implementation(platform("com.google.firebase:firebase-bom:33.12.0"))
+    implementation("com.google.firebase:firebase-analytics")
+
+
+
+    implementation("com.google.firebase:firebase-analytics-ktx")
+    implementation("com.google.mlkit:text-recognition:16.0.0")
+
+    implementation("com.google.android.gms:play-services-measurement-api:22.4.0")
+    implementation("com.google.android.gms:play-services-measurement-sdk-api:22.4.0")
 }
 
 repositories {

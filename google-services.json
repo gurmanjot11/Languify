@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "514310962070",
+    "project_id": "langufiy",
+    "storage_bucket": "langufiy.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:514310962070:android:d4868814a0ff0d3edd3bb7",
+        "android_client_info": {
+          "package_name": "languify.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAa4O6f4VA5UkukmzqrrxHBnwrHDu9-xOo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-feature android:name="android.hardware.camera"
+        android:required="true" />
 
 
     <application
@@ -17,6 +19,9 @@
             android:value="${pdftronLicenseKey}"/>
         <activity
             android:name=".HomePage"
+            android:exported="false" />
+        <activity
+            android:name=".ImageTextExtractor"
             android:exported="false" />
 
         <activity
