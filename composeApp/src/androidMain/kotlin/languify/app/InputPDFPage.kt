@@ -1,7 +1,9 @@
 package languify.app
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Display
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -94,7 +96,18 @@ class InputPDFPage: ComponentActivity() {
                 Log.i("DEBUGGING BACKEND", "GOT BACK FEEDBACK")
                 Log.i("DEBUGGING BACKEND", "---------------------------------------------")
                 Log.i("DEBUGGING BACKEND", result.languageName)
+                val intent = Intent(this@InputPDFPage, DisplayPage::class.java)
+                intent.putExtra("ID", result.id)
+                intent.putExtra("LANGUAGE_CODE", result.language.name) // Assuming Language is an enum
+                intent.putExtra("LANGUAGE_NAME", result.languageName)
+                intent.putExtra("HELLO", result.hello)
+                intent.putExtra("GOODBYE", result.goodbye)
+                intent.putExtra("HOW_ARE_YOU", result.howAreYou)
+                intent.putExtra("NUMBER_OF_SPEAKERS", result.numberOfSpeakers)
+                intent.putExtra("OFFICIAL_COUNTRIES", result.officialLanguageCountries.toTypedArray())
+                startActivity(intent)
             }
+
         }
     }
 
