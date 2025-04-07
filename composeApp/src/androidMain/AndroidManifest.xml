@@ -29,6 +29,9 @@
             android:name=".DisplayPage"
             android:exported="false" />
         <activity
+            android:name=".FeedbackPage"
+            android:exported="false" />
+        <activity
 
             android:exported="true"
             android:configChanges="orientation|screenSize|screenLayout|keyboardHidden|mnc|colorMode|density|fontScale|fontWeightAdjustment|keyboard|layoutDirection|locale|mcc|navigation|smallestScreenSize|touchscreen|uiMode"
