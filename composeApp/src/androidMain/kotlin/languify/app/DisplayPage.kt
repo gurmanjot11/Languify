@@ -41,7 +41,7 @@ class DisplayPage:ComponentActivity() {
         val btHomeBUtton = findViewById<Button>(R.id.homeButton)
         val btYes = findViewById<Button>(R.id.yesButton)
         val btNo = findViewById<Button>(R.id.noButton)
-
+        val btFeedback = findViewById<Button>(R.id.feedbackButton)
         btYes.setOnClickListener {
             btYes.setBackgroundColor(0xFF00FF00.toInt())
         }
@@ -54,5 +54,12 @@ class DisplayPage:ComponentActivity() {
             val intent = Intent(this, HomePage::class.java)
             startActivity(intent)
         }
+
+        btFeedback.setOnClickListener {
+            val intent = Intent(this, FeedbackPage::class.java)
+            startActivity(intent)
+        }
+
+
     }
 }
