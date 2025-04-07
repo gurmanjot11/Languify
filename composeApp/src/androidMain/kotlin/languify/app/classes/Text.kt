@@ -26,4 +26,9 @@ class Text{
         return textString
     }
 
+    //revised and don't use this anymore
+    override fun hashCode(): Int {
+        return textString.hashCode()
+    }
+
 }

@@ -4,8 +4,10 @@ import android.util.Log
 import languify.Language
 import languify.app.classes.Text
 import languify.app.classes.databases.LanguageSyntaxDatabase
+import languify.app.classes.databases.Result
+import languify.app.classes.databases.ResultLog
 
-class ExpertManager
+class ExpertManager(log: ResultLog)
 {
     private var uniqueResult: Language = Language.NONE
     private var latinResult: Language = Language.NONE
@@ -15,8 +17,11 @@ class ExpertManager
     private val latinExpert: Expert = LatinExpert()
     private val arabicExpert: Expert = ArabicExpert()
 
+    private val resultLog: ResultLog = log
 
-    suspend fun determineLanguage(text: Text, syntaxDatabase: LanguageSyntaxDatabase) : Language {
+
+
+    fun determineLanguage(text: Text, syntaxDatabase: LanguageSyntaxDatabase) : Result {
         var finalResult : Language = Language.NONE
         askExperts(text, syntaxDatabase)
         if (uniqueResult!= Language.NONE){
@@ -28,8 +33,14 @@ class ExpertManager
         }else{
             finalResult = Language.NONE
         }
+
+        //store the result
+        val result = Result(text, latinResult, arabicResult, uniqueResult, finalResult)
+        resultLog.addResult(result)
+        // *******need to print the logged result to the logger
+        
         resetExpertResults()
-        return finalResult
+        return result
     }
 
     suspend private fun askExperts(text: Text, syntaxDatabase: LanguageSyntaxDatabase){
