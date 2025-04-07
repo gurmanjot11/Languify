@@ -10,7 +10,8 @@ import java.util.Properties
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class ArabicExpert: Expert {
+// English, French, Spanish, French, portugese, german, turkish, polish, vietnamese
+class LatinExpert: Expert {
 
     override suspend fun guessLanguage(text: Text, syntaxDatabase: LanguageSyntaxDatabase): Language {
         return withContext(Dispatchers.IO) {
@@ -25,22 +26,25 @@ class ArabicExpert: Expert {
             } catch (e: Exception) {
                 Language.NONE
             }
-
         }
     }
 
-    private suspend fun checkLanguage(language: Language): Language {
+
+    private fun checkLanguage(language: Language): Language{
         return when (language) {
-            Language.ARABIC -> Language.ARABIC
-            Language.PERSIAN -> Language.PERSIAN
-            Language.URDU -> Language.URDU
-            Language.KURDISH -> Language.KURDISH
-            Language.PASHTO -> Language.PASHTO
+            Language.ENGLISH,
+            Language.SPANISH,
+            Language.FRENCH,
+            Language.PORTUGUESE,
+            Language.GERMAN,
+            Language.VIETNAMESE,
+            Language.TURKISH,
+            Language.POLISH -> language
             else -> Language.NONE
         }
     }
 
-    private suspend fun loadApiKey(): String? {
+    private fun loadApiKey(): String? {
         val properties = Properties()
         val file = File("local.properties")
         if (file.exists()) {

@@ -38,7 +38,7 @@ class ExpertManager(log: ResultLog)
         val result = Result(text, latinResult, arabicResult, uniqueResult, finalResult)
         resultLog.addResult(result)
         // *******need to print the logged result to the logger
-
+        
         resetExpertResults()
         return result
     }
