@@ -2,7 +2,7 @@ The "Languify" Language Detector Application is used to deduce what language som
 
 PDFs can be uploaded from the device's local storage, and photos can be taken from the device camera. See an example demonstration: 
 
-https://github.com/user-attachments/assets/9d580b89-7e55-40d6-8822-c32a78bce803
+https://github.com/user-attachments/assets/bfd03592-9519-4491-ac38-801273dbccbf
 
 Note this project was worked on by a group of 5 developers, and the forked repository can also be visited. 
 
